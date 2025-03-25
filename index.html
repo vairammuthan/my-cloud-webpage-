@@ -4,7 +4,148 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animated Webpage - GitHub Inspired</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* General reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body and background */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navbar styling */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background-color: #24292f;
+    }
+
+    .navbar .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .navbar ul li {
+      margin: 0 15px;
+    }
+
+    .navbar ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #f5f5f5;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 100vh;
+      background: url('https://via.placeholder.com/1500x800') no-repeat center center/cover;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      padding: 12px 30px;
+      background-color: #0077cc;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .cta-button:hover {
+      background-color: #005fa3;
+    }
+
+    /* Info sections */
+    .info-section {
+      padding: 80px 50px;
+      background-color: #ffffff;
+      text-align: center;
+    }
+
+    .info-section h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .info-section p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .info-section ul {
+      list-style: none;
+      margin-top: 30px;
+    }
+
+    .info-section ul li {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    /* Footer styling */
+    footer {
+      background-color: #24292f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="navbar">
@@ -50,6 +191,24 @@
     <p>© 2025 MyProject. All Rights Reserved.</p>
   </footer>
 
-  <script src="scripts.js"></script>
+  <script>
+    // Smooth Scroll for navigation links
+    document.querySelectorAll('.navbar a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      });
+    });
+
+    // Animation trigger for hero section
+    window.addEventListener('load', () => {
+      const hero = document.querySelector('.hero');
+      hero.classList.add('fadeIn');
+    });
+  </script>
 </body>
 </html>

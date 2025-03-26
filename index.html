@@ -28,12 +28,11 @@
       width: 100%;
       top: 0;
       z-index: 1000;
+      transition: background 0.5s ease-in-out;
     }
 
-    .navbar .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: #ff0000;
+    .navbar .logo img {
+      width: 150px;
     }
 
     .navbar ul {
@@ -62,8 +61,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      background: url('https://source.unsplash.com/1600x900/?movie,cinema') no-repeat center center/cover;
+      background: url('https://source.unsplash.com/1600x900/?cinema,film') no-repeat center center/cover;
       position: relative;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .hero::before {
@@ -79,6 +84,12 @@
     .hero-content {
       position: relative;
       z-index: 2;
+      animation: slideUp 1.5s ease-in-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     .cta-button {
@@ -115,6 +126,16 @@
       padding: 15px;
       border-radius: 8px;
       text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .movie-item:hover {
+      transform: scale(1.1);
+    }
+
+    .movie-item img {
+      width: 100%;
+      border-radius: 8px;
     }
 
     footer {
@@ -126,7 +147,9 @@
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">StreamFlix</div>
+    <div class="logo">
+      <img src="https://via.placeholder.com/150?text=StreamFlix" alt="StreamFlix Logo">
+    </div>
     <nav>
       <ul>
         <li><a href="#popular">Popular</a></li>
@@ -147,18 +170,18 @@
   <section id="popular" class="content-section">
     <h2>Popular Movies</h2>
     <div class="movie-list">
-      <div class="movie-item">Movie 1</div>
-      <div class="movie-item">Movie 2</div>
-      <div class="movie-item">Movie 3</div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=Movie+1" alt="Movie 1"></div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=Movie+2" alt="Movie 2"></div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=Movie+3" alt="Movie 3"></div>
     </div>
   </section>
 
   <section id="new" class="content-section">
     <h2>New Releases</h2>
     <div class="movie-list">
-      <div class="movie-item">New Movie 1</div>
-      <div class="movie-item">New Movie 2</div>
-      <div class="movie-item">New Movie 3</div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=New+Movie+1" alt="New Movie 1"></div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=New+Movie+2" alt="New Movie 2"></div>
+      <div class="movie-item"><img src="https://via.placeholder.com/200x300?text=New+Movie+3" alt="New Movie 3"></div>
     </div>
   </section>
 

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Animated Webpage</title>
+  <title>StreamFlix - Watch Anywhere</title>
   <style>
     * {
       margin: 0;
@@ -14,14 +14,8 @@
     body {
       font-family: Arial, sans-serif;
       color: #fff;
-      background: linear-gradient(45deg, #1e3c72, #2a5298);
-      animation: gradientBG 10s infinite alternate ease-in-out;
+      background: linear-gradient(45deg, #000000, #1c1c1c);
       overflow-x: hidden;
-    }
-
-    @keyframes gradientBG {
-      0% { background: linear-gradient(45deg, #1e3c72, #2a5298); }
-      100% { background: linear-gradient(45deg, #16222A, #3A6073); }
     }
 
     .navbar {
@@ -29,17 +23,17 @@
       justify-content: space-between;
       align-items: center;
       padding: 20px 50px;
-      background-color: rgba(36, 41, 47, 0.9);
+      background-color: rgba(0, 0, 0, 0.9);
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
-      transition: background 0.5s ease-in-out;
     }
 
     .navbar .logo {
       font-size: 24px;
       font-weight: bold;
+      color: #ff0000;
     }
 
     .navbar ul {
@@ -55,12 +49,11 @@
       color: #ffffff;
       text-decoration: none;
       font-size: 16px;
-      transition: color 0.3s, transform 0.3s;
+      transition: color 0.3s;
     }
 
     .navbar ul li a:hover {
-      color: #00d4ff;
-      transform: scale(1.1);
+      color: #ff0000;
     }
 
     .hero {
@@ -69,9 +62,8 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      background: url('https://source.unsplash.com/1600x900/?movie,cinema') no-repeat center center/cover;
       position: relative;
-      overflow: hidden;
-      background: url('https://source.unsplash.com/1600x900/?technology') no-repeat center center/cover;
     }
 
     .hero::before {
@@ -81,50 +73,52 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      animation: slideUp 1.5s ease-in-out;
-    }
-
-    @keyframes slideUp {
-      0% { transform: translateY(100px); opacity: 0; }
-      100% { transform: translateY(0); opacity: 1; }
     }
 
     .cta-button {
       padding: 12px 30px;
-      background: #00d4ff;
+      background: #ff0000;
       color: #fff;
-      font-size: 16px;
+      font-size: 18px;
       border-radius: 5px;
       text-decoration: none;
       transition: transform 0.3s, background 0.3s;
     }
 
     .cta-button:hover {
-      background: #009acd;
+      background: #cc0000;
       transform: scale(1.1);
     }
 
-    .info-section {
+    .content-section {
       padding: 80px 50px;
       text-align: center;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-in-out;
+      color: #fff;
     }
 
-    .info-section.show {
-      opacity: 1;
-      transform: translateY(0);
+    .movie-list {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .movie-item {
+      width: 200px;
+      background: #222;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
     }
 
     footer {
-      background: rgba(36, 41, 47, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       text-align: center;
       padding: 20px;
     }
@@ -132,11 +126,11 @@
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">MyProject</div>
+    <div class="logo">StreamFlix</div>
     <nav>
       <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#features">Features</a></li>
+        <li><a href="#popular">Popular</a></li>
+        <li><a href="#new">New Releases</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -144,36 +138,32 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Build Amazing Projects</h1>
-      <p>Collaborate, code, and deploy seamlessly.</p>
-      <a href="#signup" class="cta-button">Get Started</a>
+      <h1>Unlimited Streaming, Anytime, Anywhere</h1>
+      <p>Watch your favorite movies and shows on demand.</p>
+      <a href="#signup" class="cta-button">Start Watching</a>
     </div>
   </section>
 
-  <section id="about" class="info-section"> <h2>About Us</h2> <p>We make the web better.</p> </section>
-  <section id="features" class="info-section"> <h2>Features</h2> <ul> <li>Collaboration</li> <li>Project Management</li> </ul> </section>
-  <section id="contact" class="info-section"> <h2>Contact</h2> <p>Get in touch!</p> </section>
+  <section id="popular" class="content-section">
+    <h2>Popular Movies</h2>
+    <div class="movie-list">
+      <div class="movie-item">Movie 1</div>
+      <div class="movie-item">Movie 2</div>
+      <div class="movie-item">Movie 3</div>
+    </div>
+  </section>
 
-  <footer><p>© 2025 MyProject. All Rights Reserved.</p></footer>
+  <section id="new" class="content-section">
+    <h2>New Releases</h2>
+    <div class="movie-list">
+      <div class="movie-item">New Movie 1</div>
+      <div class="movie-item">New Movie 2</div>
+      <div class="movie-item">New Movie 3</div>
+    </div>
+  </section>
 
-  <script>
-    document.querySelectorAll('.navbar a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-      });
-    });
-
-    const sections = document.querySelectorAll('.info-section');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
-      });
-    }, { threshold: 0.3 });
-
-    sections.forEach(section => observer.observe(section));
-  </script>
+  <footer>
+    <p>© 2025 StreamFlix. All Rights Reserved.</p>
+  </footer>
 </body>
 </html>
